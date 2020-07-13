@@ -1,0 +1,261 @@
+/* Buttons */
+.btn-primary {
+  width: $btn_primary_width;
+  height: $btn_primary_height;
+  padding: $space_l;
+  @include flexbox(center, center); // justify, align;
+  color: $color_black;
+  background: transparent;
+  border: $btn_primary_border_width solid transparent;
+  position: relative;
+
+  &.black-blue {
+    border-color: $color_black;
+    color: $color_black;
+    &:hover,
+    &.active {
+      animation: primary-hover-black-blue $animation-speed ease-in-out;
+      background: $color_black;
+      color: $color_primary;
+    }
+  }
+  &.black-white {
+    border-color: $color_black;
+    color: $color_black;
+    &:hover,
+    &.active {
+      animation: primary-hover-black-white $animation-speed ease-in-out;
+      background: $color_black;
+      color: $color_secondary;
+    }
+  }
+  &.white-blue {
+    border-color: $color_secondary;
+    color: $color_secondary;
+    &:hover,
+    &.active {
+      animation: primary-hover-white-blue $animation-speed ease-in-out;
+      background: $color_secondary;
+      color: $color_primary;
+    }
+  }
+  &.white-black {
+    border-color: $color_secondary;
+    color: $color_secondary;
+    &:hover,
+    &.active {
+      animation: primary-hover-white-black $animation-speed ease-in-out;
+      background: $color_secondary;
+      color: $color_black;
+    }
+  }
+  &.orange-blue {
+    border-color: $color_accent;
+    color: $color_accent;
+    &:hover,
+    &.active {
+      animation: primary-hover-orange-blue $animation-speed ease-in-out;
+      background: $color_accent;
+      color: $color_primary;
+    }
+  }
+  &.orange-white {
+    border-color: $color_accent;
+    color: $color_accent;
+    &:hover,
+    &.active {
+      animation: primary-hover-orange-white $animation-speed ease-in-out;
+      background: $color_accent;
+      color: $color_secondary;
+    }
+  }
+  &.orange-black {
+    border-color: $color_accent;
+    color: $color_accent;
+    &:hover,
+    &.active {
+      animation: primary-hover-orange-black $animation-speed ease-in-out;
+      background: $color_accent;
+      color: $color_black;
+    }
+  }
+  &.blue-white {
+    border-color: $color_primary;
+    color: $color_primary;
+    &:hover,
+    &.active {
+      animation: primary-hover-blue-white $animation-speed ease-in-out;
+      background: $color_primary;
+      color: $color_secondary;
+    }
+  }
+  &.blue-black {
+    border-color: $color_primary;
+    color: $color_primary;
+    &:hover,
+    &.active {
+      animation: primary-hover-blue-black $animation-speed ease-in-out;
+      background: $color_primary;
+      color: $color_black;
+    }
+  }
+}
+
+.btn-secondary {
+  width: $btn_secondary_width;
+  height: $btn_secondary_height;
+  @include flexbox(center, center); // justify, align;
+  color: $color_black;
+  background: transparent;
+  position: relative;
+  border-top: $btn_secondary_border_width solid transparent;
+  border-bottom: $btn_secondary_border_width solid transparent;
+
+  &:hover,
+  &.active {
+    color: $color_primary;
+  }
+}
+
+.btn-up {
+  width: $btn_24_width;
+  height: $btn_24_height;
+  @include flexbox(center, center); // justify, align;
+  left: 50%;
+  bottom: $space_m;
+  border-radius: $btn_24_radius;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.04);
+  background: transparent;
+  animation: button-jump 1s linear infinite;
+  z-index: $zIndexNavButton;
+  opacity: 1;
+
+  &:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+  svg path {
+    fill: $color_secondary;
+
+    &:first-child {
+      fill: transparent;
+    }
+  }
+}
+
+.btn-menu-toggle {
+  width: $btn_24_width;
+  height: $btn_24_height;
+  @include flexbox(center, center); // justify, align;
+  border-radius: $btn_24_radius;
+  bottom: $space_m;
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.04);
+  background: transparent;
+  z-index: $zIndexNavButton;
+  opacity: 1;
+  -webkit-transition: opacity 0.35s linear;
+  -moz-transition: opacity 0.35s linear;
+  -ms-transition: opacity 0.35s linear;
+  -o-transition: opacity 0.35s linear;
+  transition: opacity 0.35s linear;
+
+  &:hover {
+    #frstbar {
+      transform: translateY(-2px);
+    }
+
+    #scndbar {
+      width: 8px;
+    }
+
+    #thrdbar {
+      transform: translateY(2px);
+    }
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 24px;
+
+    svg rect {
+      fill: $color_accent;
+    }
+  }
+
+  &.toggle {
+    display: none;
+    opacity: 0;
+  }
+
+  &.toggleTwo {
+    display: block;
+    opacity: 0;
+  }
+
+  &.toggleThree {
+    opacity: 1;
+  }
+
+  #frstbar,
+  #scndbar,
+  #thrdbar {
+    transition: all 0.3s linear;
+    transform: rotate(0deg);
+    transform-origin: 0% 50%;
+  }
+
+  // #burgericon.changeIcon:hover,
+  // #burgericon.changeIcon:active {
+  //   #frstbar {
+  //     transform: translateY(-2px);
+  //   }
+
+  //   #scndbar {
+  //     width: 8px;
+  //   }
+
+  //   #thrdbar {
+  //     transform: translateY(2px);
+  //   }
+  // }
+
+  #burgericon.changeIcon #frstbar {
+    transition: all 0.3s linear;
+    -webkit-transform: translateY(-5px) rotate(45deg);
+    -moz-transform: translateY(-5px) rotate(45deg);
+    -ms-transform: translateY(-5px) rotate(45deg);
+    -o-transform: translateY(-5px) rotate(45deg);
+    transform: translateY(-5px) rotate(45deg);
+  }
+
+  #burgericon.changeIcon #thrdbar {
+    transition: all 0.3s linear;
+    -webkit-transform: translateY(5px) rotate(-45deg);
+    -moz-transform: translateY(5px) rotate(-45deg);
+    -ms-transform: translateY(5px) rotate(-45deg);
+    -o-transform: translateY(5px) rotate(-45deg);
+    transform: translateY(5px) rotate(-45deg);
+  }
+
+  #burgericon.changeIcon #scndbar {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@media (min-width: $display_large) {
+  a[class^="btn"] {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 20px;
+    letter-spacing: 0.75px;
+  }
+
+  .btn-menu-toggle {
+    box-shadow: none;
+    background: transparent;
+  }
+}

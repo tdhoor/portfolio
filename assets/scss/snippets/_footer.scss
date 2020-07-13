@@ -1,0 +1,37 @@
+/* Footer */
+footer {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background: $color_black;
+
+  .cont-top {
+    width: 100%;
+    height: 100%;
+    @include flexbox(center, center); // justify, align;
+  }
+
+  .cont-bottom {
+    width: 100%;
+    height: 60px;
+    padding: $space_m;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include flexbox(space-between, center); // justify, align;
+
+    .soz-media svg {
+      width: 24px;
+      height: 24px;
+      margin-right: $space_xs;
+
+      path {
+        fill: $color_secondary;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

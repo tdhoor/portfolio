@@ -1,0 +1,451 @@
+/* Effects */
+// Cursors
+.cursor-pencil {
+  cursor: url($path_icon + "pencil.png");
+}
+
+// Curtain effect vertical
+@keyframes curtain-vertical {
+  0% {
+    background: $color_black;
+    height: 50%;
+  }
+  100% {
+    background: transparent;
+    height: 0;
+  }
+}
+
+// Curtain effect vertical backwards
+@keyframes curtain-vertical-backwards {
+  0% {
+    background: transparent;
+    height: 0;
+  }
+  100% {
+    background: $color_black;
+    height: 50%;
+  }
+}
+
+// Curtain effect horizontal
+@keyframes curtain-horizontal {
+  0% {
+    background: $color_black;
+    width: 50%;
+  }
+  100% {
+    background: transparent;
+    width: 0;
+  }
+}
+
+// Curtain effect horizontal backwards
+@keyframes curtain-horizontal-backwards {
+  0% {
+    background: transparent;
+    width: 0;
+  }
+  100% {
+    background: $color_black;
+    width: 50%;
+  }
+}
+
+// Heartbeat effect
+@keyframes heartbeat {
+  0% {
+    width: 24px;
+    height: 24px;
+  }
+  25% {
+    width: 30px;
+    height: 30px;
+    transform: translate(-3px, -3px);
+  }
+  50% {
+    width: 24px;
+    height: 24px;
+    transform: translate(0, 0);
+  }
+  75% {
+    width: 32px;
+    height: 32px;
+    transform: translate(-4px, -4px);
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    transform: translate(0, 0);
+  }
+}
+
+// Button jump effect
+@keyframes jump-and-rotate {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// Text modules header effects
+@keyframes text-mod-header-light-dark {
+  0% {
+    color: $color_secondary;
+  }
+  100% {
+    color: $color_black;
+  }
+}
+
+// Text modules header effects
+@keyframes text-mod-header-dark-light {
+  0% {
+    color: $color_black;
+  }
+  100% {
+    color: $color_secondary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-white-blue {
+  0% {
+    background: transparent;
+    color: $color_secondary;
+  }
+  100% {
+    background: $color_secondary;
+    color: $color_primary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-white-black {
+  0% {
+    background: transparent;
+    color: $color_secondary;
+  }
+  100% {
+    background: $color_secondary;
+    color: $color_black;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-black-blue {
+  0% {
+    background: transparent;
+    color: $color_black;
+  }
+  100% {
+    background: $color_black;
+    color: $color_primary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-black-white {
+  0% {
+    background: transparent;
+    color: $color_black;
+  }
+  100% {
+    background: $color_black;
+    color: $color_secondary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-orange-blue {
+  0% {
+    background: transparent;
+    color: $color_accent;
+  }
+  100% {
+    background: $color_accent;
+    color: $color_primary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-orange-white {
+  0% {
+    background: transparent;
+    color: $color_accent;
+  }
+  100% {
+    background: $color_accent;
+    color: $color_secondary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-orange-black {
+  0% {
+    background: transparent;
+    color: $color_accent;
+  }
+  100% {
+    background: $color_accent;
+    color: $color_black;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-blue-white {
+  0% {
+    background: transparent;
+    color: $color_primary;
+  }
+  100% {
+    background: $color_primary;
+    color: $color_secondary;
+  }
+}
+
+// Button color effect
+@keyframes primary-hover-blue-black {
+  0% {
+    background: transparent;
+    color: $color_primary;
+  }
+  100% {
+    background: $color_primary;
+    color: $color_black;
+  }
+}
+
+// Button color effect
+@keyframes color-light-dark {
+  0% {
+    color: $color_secondary;
+  }
+  100% {
+    color: $color_black;
+  }
+}
+
+// Button color effect
+@keyframes color-dark-light {
+  0% {
+    color: $color_black;
+  }
+  100% {
+    color: $color_secondary;
+  }
+}
+
+// Background effect, out-in-out Austria flag
+.eff-austria {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    background: linear-gradient(
+      180deg,
+      #ed2939,
+      #ed2939 calc(100% / 3),
+      white calc(100% / 3),
+      white calc(100% / 3 * 2),
+      #ed2939 calc(100% / 3 * 2),
+      #ed2939 100%
+    );
+  }
+
+  &:hover::before {
+    animation: effect-blink $animation_short ease-in-out infinite;
+  }
+}
+
+// wave emojie effect
+.eff-wave {
+  display: inline-block;
+  transform: rotate(0);
+  &:hover {
+    transform-origin: 75% 75%; /* Pivot around the bottom-left palm */
+    animation: effect-wave $animation_long linear infinite;
+  }
+}
+
+// Blink effect
+@keyframes effect-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// Wave effect
+@keyframes effect-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+// cursor ok image
+.cursor-ok {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👍</text></svg>")
+      16 0,
+    auto;
+}
+
+// cursor not available
+.cursor-not-available {
+  &:hover {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚫</text></svg>")
+        16 0,
+      auto;
+  }
+  a {
+    pointer-events: none;
+  }
+}
+
+// projects -> tools color
+.tools {
+  fill: $color_black;
+  path {
+    fill: $color_black;
+  }
+}
+
+// Background icons
+.android,
+.angular,
+.bootstrap,
+.css,
+.facebook,
+.firebase,
+.flutter,
+.git,
+.gitlab,
+.html,
+.ionic,
+.java,
+.javascript,
+.jquery,
+.kirby,
+.linked-in,
+.php,
+.react,
+.sass,
+.slack,
+.stencil,
+.typescript,
+.vue {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  svg path {
+    fill: black;
+  }
+}
+
+.android {
+  background-image: url($path_icon + "android.svg");
+}
+.angular {
+  background-image: url($path_icon + "angular.svg");
+}
+.bootstrap {
+  background-image: url($path_icon + "bootstrap.svg");
+}
+.css {
+  background-image: url($path_icon + "css.svg");
+}
+.facebook {
+  background-image: url($path_icon + "facebook.svg");
+}
+.firebase {
+  background-image: url($path_icon + "firebase.png");
+}
+.flutter {
+  background-image: url($path_icon + "flutter.png");
+}
+.git {
+  background-image: url($path_icon + "git.svg");
+}
+.gitlab {
+  background-image: url($path_icon + "gitlab.svg");
+}
+.html {
+  background-image: url($path_icon + "html.svg");
+}
+.ionic {
+  background-image: url($path_icon + "ionic.svg");
+}
+.java {
+  background-image: url($path_icon + "java.svg");
+}
+.javascript {
+  background-image: url($path_icon + "javascript.svg");
+}
+.jquery {
+  background-image: url($path_icon + "jquery.svg");
+}
+.kirby {
+  background-image: url($path_icon + "kirby.svg");
+}
+.linked-in {
+  background-image: url($path_icon + "linked-in.svg");
+}
+.php {
+  background-image: url($path_icon + "php.svg");
+}
+.react {
+  background-image: url($path_icon + "react.svg");
+}
+.sass {
+  background-image: url($path_icon + "sass.svg");
+}
+.slack {
+  background-image: url($path_icon + "slack.svg");
+}
+.stencil {
+  background-image: url($path_icon + "stencil.png");
+}
+.typescript {
+  background-image: url($path_icon + "typescript.svg");
+}
+.vue {
+  background-image: url($path_icon + "vue.svg");
+}

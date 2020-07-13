@@ -1,0 +1,109 @@
+/* Text module 02 */
+.text-mod-02,
+.text-mod-03,
+.text-mod-04 {
+  min-height: 100vh;
+  padding-top: $layout_l;
+  padding-bottom: $layout_l;
+  background: $color_secondary;
+  position: relative;
+  text-align: left;
+
+  .cont-header {
+    padding-top: $layout_m;
+    text-align: left;
+    z-index: $zIndexHeader;
+    color: $color_secondary;
+  }
+
+  .cont-text {
+    padding-bottom: $layout_xl;
+
+    strong {
+      color: $color_primary;
+      font-weight: normal;
+    }
+  }
+
+  // Black curtain top
+  &::before {
+    content: "";
+    width: 100vw;
+    height: 51%;
+    position: absolute;
+    left: calc((100% - 100vw) / 2);
+    top: -1px;
+    z-index: $zIndexCurtain;
+    background: $color_black;
+  }
+
+  // Black curtain bottom
+  &::after {
+    content: "";
+    width: 100vw;
+    height: 51%;
+    position: absolute;
+    left: calc((100% - 100vw) / 2);
+    bottom: -1px;
+    z-index: $zIndexCurtain;
+    background: $color_black;
+  }
+
+  // Open the curtain
+  &.show {
+    &::before {
+      height: 0;
+      animation: curtain-vertical $curtain-time ease-in;
+    }
+
+    &::after {
+      height: 0;
+      animation: curtain-vertical $curtain-time ease-in;
+    }
+
+    .cont-header {
+      h1,
+      h2 {
+        color: $color_black;
+        animation: text-mod-header-light-dark $curtain-time ease-in;
+      }
+    }
+  }
+
+  // Close the curtain
+  &.hide {
+    &::before {
+      animation: curtain-vertical-backwards $curtain-time ease-out;
+    }
+    &::after {
+      animation: curtain-vertical-backwards $curtain-time ease-out;
+    }
+    .cont-header {
+      h1,
+      h2 {
+        color: $color_secondary;
+        animation: text-mod-header-dark-light $curtain-time ease-out;
+      }
+    }
+  }
+}
+
+// Medium device
+@media (min-width: $display_medium) {
+  .text-mod-02,
+  .text-mod-03,
+  .text-mod-04 {
+    padding-top: $layout_xl;
+    padding-bottom: $layout_xl;
+  }
+}
+
+// Large device
+@media (min-width: $display_large) {
+  .text-mod-02,
+  .text-mod-03,
+  .text-mod-04 {
+    padding-top: $layout_xxl;
+    padding-bottom: $layout_xxl;
+  }
+}

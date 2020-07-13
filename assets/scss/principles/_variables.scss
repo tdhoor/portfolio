@@ -1,0 +1,66 @@
+/* Variables */
+/* Paths*/
+$root_domain: "file:///C:/Users/tdorf/Desktop/my_portfolio/";
+$path_icon: $root_domain + "assets/images/icons/";
+$path_assets: $root_domain + "assets/";
+
+/* Main color definition */
+$color_white: #ffffff;
+$color_black: #181818;
+$color_primary: #4399ff;
+$color_secondary: #fdfdfd; //rgba(79, 79, 79, 0.25);
+$color_accent: #ffa843;
+
+/* Distances */
+$display_large: 1024px !default; // 1024px or higher
+$display_medium: 768px !default; // 768px or higher
+$display_small: 320px !default; // 320px or higher
+
+$space_xxs: 0.5rem !default; //8
+$space_xs: 0.75rem !default; //12
+$space_s: 1rem !default; //16
+$space_m: 1.5rem !default; //24
+$space_l: 2rem !default; //32
+$space_xl: 2.5rem !default; //40
+$space_xxl: 3rem !default; //48
+
+$layout_xs: 0.5rem !default; //8
+$layout_s: 1rem !default; //16
+$layout_m: 2rem !default; //32
+$layout_l: 4rem !default; //64
+$layout_xl: 5rem !default; //80
+$layout_xxl: 7.5rem !default; //120
+
+/* Position elements */
+$zIndexNavBar: 1000 !default;
+$zIndexNavButton: 1001 !default;
+$zIndexNavBg: 999 !default;
+$zIndexButton: 900 !default;
+$zIndexCurtain: 1 !default;
+$zIndexProfImage: 2 !default;
+$zIndexPageLogo: 3 !default;
+$zIndexHeader: 4 !default;
+
+/* Buttons */
+$btn_primary_width: auto !default;
+$btn_primary_height: 34px !default;
+$btn_primary_border_width: 1px !default;
+
+$btn_secondary_width: 136px !default;
+$btn_secondary_height: $btn_primary_height;
+$btn_secondary_border_width: 2px !default;
+
+$btn_24_width: 48px !default;
+$btn_24_height: 48px !default;
+$btn_24_radius: 27px !default;
+
+$btn_border_width: 2px !default;
+
+/* Animation timing */
+$animation-speed: 0.35s !default; // btn hover effect
+$curtain-time: 1.5s !default;
+
+$animation_extra_short: 0.35s !default;
+$animation_short: 1s !default;
+$animation_medium: 2s !default;
+$animation_long: 4s !default;

@@ -1,0 +1,18 @@
+/* Text mod 03 */
+// Same style like text-mod-02, whit this changes. (Take a look at ./_text-mod.02.scss)
+.text-mod-03 {
+  background: $color_primary;
+
+  p {
+    color: $color_secondary;
+  }
+
+  .cont-header {
+    text-align: right;
+  }
+
+  .cont-text strong {
+    color: $color_black;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,84 @@
+/* Projects */
+@import "../principles/variables";
+@import "../principles/mixins";
+@import "../principles/typography";
+@import "../principles/effects";
+
+@import "../snippets/btn";
+@import "../snippets/navbar";
+@import "../snippets/footer";
+@import "../snippets/page_logo";
+
+@import "../snippets/text_mod_01";
+@import "../snippets/text_mod_02";
+@import "../snippets/text_mod_03";
+@import "../snippets/text_mod_04";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: $color_secondary;
+  overflow-x: hidden;
+}
+
+.container,
+.container-fluid {
+  max-width: 1440px;
+}
+
+.page-logo {
+  position: relative;
+
+  svg path {
+    fill: $color_black;
+  }
+}
+
+.section-01 {
+  height: 80vh;
+}
+
+.filter-mod {
+  height: 100%;
+  @include flexbox(center, center); // justify, align;
+  flex-direction: column;
+  h1 {
+    color: $color_black;
+  }
+
+  .filter-btns {
+    @include flexbox(center, center); // justify, align;
+    flex-direction: column;
+    a {
+      margin: $space_s;
+    }
+  }
+}
+
+@media (min-width: $display_large) {
+  .filter-mod {
+    flex-direction: column;
+
+    .filter-btns {
+      flex-direction: row;
+      a {
+        margin: $space_m;
+      }
+    }
+  }
+}
+
+.dev-mobile,
+.dev-frontend,
+.dev-fullstack {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,52 @@
+/* Contact */
+@import "../principles/variables";
+@import "../principles/mixins";
+@import "../principles/typography";
+@import "../principles/effects";
+
+@import "../snippets/btn";
+@import "../snippets/navbar";
+@import "../snippets/footer";
+@import "../snippets/page_logo";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: $color_secondary;
+  overflow-x: hidden;
+}
+
+.container,
+.container-fluid {
+  max-width: 1440px;
+}
+
+.page-logo {
+  svg path {
+    fill: $color_secondary;
+  }
+}
+
+footer {
+  height: 100vh;
+  width: 100%;
+
+  .cont-bottom {
+    padding-bottom: $layout_xxl;
+    @include flexbox(center, center); // justify, align;
+
+    .soz-media svg {
+      width: 40px;
+      height: 48px;
+    }
+
+    &:last-child svg {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+/* About me */
+@import "../principles/variables";
+@import "../principles/mixins";
+@import "../principles/typography";
+@import "../principles/effects";
+
+@import "../snippets/btn";
+@import "../snippets/navbar";
+@import "../snippets/footer";
+@import "../snippets/page_logo";
+
+@import "../snippets/text_mod_01";
+@import "../snippets/text_mod_02";
+@import "../snippets/text_mod_03";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: $color_secondary;
+  overflow-x: hidden;
+}
+
+.container,
+.container-fluid {
+  max-width: 1440px;
+}
+
+.page-logo {
+  position: relative;
+
+  svg path {
+    fill: $color_black;
+  }
+}
+
+.text-mod-01 {
+  padding-top: calc(100vh - 100vw * 0.8333333 - 260px);
+}
+
+@media (min-width: $display_large) {
+  .text-mod-01 {
+    padding-top: calc(100vh - 100vw * 0.25 - 100px);
+  }
+}
