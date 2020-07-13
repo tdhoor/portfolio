@@ -45,8 +45,8 @@ footer {
       height: 48px;
     }
 
-    &:last-child svg {
-      margin-right: 0;
+    .up .btn-up {
+      display: none;
     }
   }
 }

@@ -1,6 +1,6 @@
 /* Variables */
 /* Paths*/
-$root_domain: "file:///C:/Users/tdorf/Desktop/my_portfolio/";
+$root_domain: "http://thomasdorfer.com/";
 $path_icon: $root_domain + "assets/images/icons/";
 $path_assets: $root_domain + "assets/";
 
@@ -36,7 +36,7 @@ $zIndexNavBar: 1000 !default;
 $zIndexNavButton: 1001 !default;
 $zIndexNavBg: 999 !default;
 $zIndexButton: 900 !default;
-$zIndexCurtain: 1 !default;
+$zIndexCurtain: 1002 !default;
 $zIndexProfImage: 2 !default;
 $zIndexPageLogo: 3 !default;
 $zIndexHeader: 4 !default;

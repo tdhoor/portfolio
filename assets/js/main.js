@@ -5,26 +5,9 @@ var projects = null;
 var effectCurtonElements = null;
 
 /**
- 
-KINDERHAUS_MITEINANDER
-http://kinderhausmiteinander.com/
-
-FRAMEWORKS_PERFOMANCE_TEST
-http://thomasdorfer.com/web_framework/performance_test/react/index.html
-http://thomasdorfer.com/web_framework/performance_test/angular/index.html
-
-TIK_TAK_TOE
-http://thomasdorfer.com/tic_tac_toe/index.html
-
-YOLO
-nothing :-(
-
-
+ * Initialize all Buttons;
  */
 function initButton() {
-  /**
-   * Initialize all Buttons;
-   */
   btnBackToTop = document.getElementById("btn-up");
   btnsMenu = document.querySelectorAll(".btn-secondary");
   filterBtns = document.querySelectorAll(".btn-primary");
@@ -45,12 +28,11 @@ function initButton() {
   });
 }
 
+/**
+ * Filter all projects by the clicked button.
+ * @param  {Object} btn DOM element filter button
+ */
 function filterProjects(btn) {
-  /**
-   * Filter all projects by the clicked button.
-   * @param: bnt = Button
-   */
-
   if (typeof btn.dataset.filter === "undefined") {
     return;
   }
@@ -64,10 +46,10 @@ function filterProjects(btn) {
   });
 }
 
+/**
+ * Initialize the menu + all effects, including menu-toggle effect and menu-curton effect.
+ */
 function initNavBar() {
-  /**
-   * Initialize the menu + all effects, including menu-toggle effect and menu-curton effect.
-   */
   var menuToggle = document.getElementById("btn-menu-toggle");
   var menuToggleIcon = document.getElementById("burgericon");
   var navBar = document.getElementById("nav-bar");
@@ -80,12 +62,12 @@ function initNavBar() {
   };
 }
 
+/**
+ * Toggle the class "active" by clicking a menu-button.
+ * @param  {Object} btns DOM element menu-buttons
+ * @param  {Object} clickedButton DOM element clicked button
+ */
 function handleActiveBtn(btns, clickedButton) {
-  /**
-   * Toggle the class "active" by clicking a menu-button.
-   * @param: btns = all buttons from a class collection
-   * @param: clickedButton = Button
-   */
   btns.forEach((btn) => {
     if (btn === clickedButton) {
       btn.classList.add("active");
@@ -95,11 +77,11 @@ function handleActiveBtn(btns, clickedButton) {
   });
 }
 
+/**
+ * If the element is at a third of the display height (top or bottom), it appears or disappears.
+ * @param  {Object} element DOM element where class needs to be removed
+ */
 function scrollAppear(element) {
-  /**
-   * If the element is at a third of the display height (top or bottom), it appears or disappears.
-   * @param: element = DOM element.
-   */
   if (
     (window.innerHeight - element.getBoundingClientRect().top >
       window.innerHeight / 3 ||
