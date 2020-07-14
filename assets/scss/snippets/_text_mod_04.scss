@@ -45,6 +45,7 @@
       top: 50%;
       transform: rotate(90deg);
       background: $color_accent;
+      z-index: $zIndexButton;
     }
   }
 

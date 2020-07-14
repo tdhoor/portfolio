@@ -1096,7 +1096,7 @@ footer .cont-bottom .soz-media svg:hover {
   position: absolute;
   left: calc((100% - 100vw) / 2);
   top: 0;
-  z-index: 1002;
+  z-index: 901;
   background: #181818;
 }
 
@@ -1107,7 +1107,7 @@ footer .cont-bottom .soz-media svg:hover {
   position: absolute;
   left: calc((100% - 100vw) / 2);
   bottom: 0;
-  z-index: 1002;
+  z-index: 901;
   background: #181818;
 }
 
@@ -1187,7 +1187,7 @@ footer .cont-bottom .soz-media svg:hover {
   position: absolute;
   left: calc((100% - 100vw) / 2);
   top: -1px;
-  z-index: 1002;
+  z-index: 901;
   background: #181818;
 }
 
@@ -1200,7 +1200,7 @@ footer .cont-bottom .soz-media svg:hover {
   position: absolute;
   left: calc((100% - 100vw) / 2);
   bottom: -1px;
-  z-index: 1002;
+  z-index: 901;
   background: #181818;
 }
 
