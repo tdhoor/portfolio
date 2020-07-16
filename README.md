@@ -13,6 +13,17 @@
 ### Used Frameworks and Librarys
 
 - Bootstrap v4.4.1 (Grid - System)
+- Babel v7.10.5
+- Webpack v4.43.0
+
+## Commands
+
+- npm i
+  - install dependencis
+- npm run build
+  - build dev to debugg in ./build
+- npm run build-release
+  - build release version in ./build
 
 ## Domain
 

@@ -4,8 +4,7 @@
   "description": "Portfolio",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.5.0",
-    "lodash": "^4.17.19"
+    "bootstrap": "^4.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -16,7 +15,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "webpack -d"
+    "build": "webpack -d",
+    "build-release": "webpack"
   },
   "author": "Thomas Dorfer",
   "license": "ISC",
