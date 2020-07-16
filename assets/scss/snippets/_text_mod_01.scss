@@ -3,6 +3,31 @@
   margin-top: 100px;
   background: $color_secondary;
 
+  .output-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    top: 70px;
+    font-size: 40px;
+    pointer-events: none;
+    overflow-y: hidden;
+
+    textarea {
+      overflow-y: hidden;
+      font-size: 12px;
+      border: none;
+      color: white;
+      background: #181818;
+      text-align: left;
+      padding: 12px;
+      height: 152px;
+      width: 107%;
+      resize: none;
+    }
+  }
+
   .cont-img {
     z-index: $zIndexProfImage;
 
@@ -110,9 +135,29 @@
     }
   }
 }
+@media (min-width: $display_medium) {
+  .text-mod-01 {
+    .output-container {
+      top: 15%;
 
+      textarea {
+        height: 170px;
+        font-size: 13px;
+        width: 80%;
+        padding: 20px;
+      }
+    }
+  }
+}
 @media (min-width: $display_large) {
   .text-mod-01 {
+    .output-container {
+      textarea {
+        font-size: 16px;
+        height: 210px;
+      }
+    }
+
     .cont-header {
       &::before {
         left: calc(((100% - 100vw) / 2) - 16.66667% * 2);
@@ -122,6 +167,7 @@
         left: calc(((100% - 100vw) / 2) - 16.66667% * 2);
       }
     }
+
     .cont-text {
       &::before {
         left: calc(((100% - 100vw) / 2) - 25% / 2);

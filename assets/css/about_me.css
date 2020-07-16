@@ -1031,6 +1031,31 @@ footer .cont-bottom .soz-media svg:hover {
   background: #fdfdfd;
 }
 
+.text-mod-01 .output-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  top: 70px;
+  font-size: 40px;
+  pointer-events: none;
+  overflow-y: hidden;
+}
+
+.text-mod-01 .output-container textarea {
+  overflow-y: hidden;
+  font-size: 12px;
+  border: none;
+  color: white;
+  background: #181818;
+  text-align: left;
+  padding: 12px;
+  height: 152px;
+  width: 107%;
+  resize: none;
+}
+
 .text-mod-01 .cont-img {
   z-index: 2;
 }
@@ -1129,7 +1154,23 @@ footer .cont-bottom .soz-media svg:hover {
   animation: curtain-vertical-backwards 1.5s ease-out;
 }
 
+@media (min-width: 768px) {
+  .text-mod-01 .output-container {
+    top: 15%;
+  }
+  .text-mod-01 .output-container textarea {
+    height: 170px;
+    font-size: 13px;
+    width: 80%;
+    padding: 20px;
+  }
+}
+
 @media (min-width: 1024px) {
+  .text-mod-01 .output-container textarea {
+    font-size: 16px;
+    height: 210px;
+  }
   .text-mod-01 .cont-header::before {
     left: calc(((100% - 100vw) / 2) - 16.66667% * 2);
   }
@@ -1312,7 +1353,13 @@ body {
 }
 
 .text-mod-01 {
-  padding-top: calc(100vh - 100vw * 0.8333333 - 260px);
+  padding-top: calc(100vh - 100vw * 0.83333 - 260px);
+}
+
+@media (min-width: 768px) {
+  .text-mod-01 {
+    padding-top: calc(100vh - 100vw * 0.33333 - 260px);
+  }
 }
 
 @media (min-width: 1024px) {

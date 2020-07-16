@@ -39,7 +39,13 @@ body {
 }
 
 .text-mod-01 {
-  padding-top: calc(100vh - 100vw * 0.8333333 - 260px);
+  padding-top: calc(100vh - 100vw * 0.83333 - 260px);
+}
+
+@media (min-width: $display_medium) {
+  .text-mod-01 {
+    padding-top: calc(100vh - 100vw * 0.33333 - 260px);
+  }
 }
 
 @media (min-width: $display_large) {
