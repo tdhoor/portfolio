@@ -103,22 +103,25 @@ function scrollAppear(element) {
 
 function initSlider() {
   var sliderBtn = document.querySelectorAll(".btn-slider");
+  var sliderParent;
+  var sliderChildren;
 
-  for (var i = 0; i < sliderBtn.length; i++) {
-    sliderBtn[i].addEventListener("click", function () {
-      var sliderChildren = this.parentNode.getElementsByTagName("img");
+  sliderBtn.forEach((element) => {
+    element.onclick = () => {
+      sliderParent = element.parentNode;
+      sliderChildren = sliderParent.getElementsByTagName("img");
       var foundNext = false;
 
-      for (var j = 0; j < sliderChildren.length; j++) {
+      [...sliderChildren].forEach((el, index) => {
         if (!Helpers.hasClass(el, "inactive") && !foundNext) {
           var nextPos = index + 1 >= sliderChildren.length ? 0 : index + 1;
           Helpers.removeClass(sliderChildren[nextPos], "inactive");
           Helpers.addClass(el, "inactive");
           foundNext = true;
         }
-      }
-    });
-  }
+      });
+    };
+  });
 }
 
 /* Event Listeners */
