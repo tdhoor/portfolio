@@ -1,38 +1,51 @@
+// before
 import Helpers from "./helper.js";
 import Printer from "./printer.js";
 import Developer from "./developer.js";
 import Skills from "./skills.js";
 
-var projects = null;
-var effectCurtonElements = null;
-var firstLoad = true;
+let projects = null;
+let effectCurtonElements = null;
+let firstLoad = true;
+
+let btnBackToTop;
+let btnsMenu;
+let filterBtns;
+
+let menuToggle;
+let menuToggleIcon;
+let navBar;
+
+let sliderBtn;
 
 /**
- * Initialize all Buttons;
+ * Initialize back-to-top button, filter-buttons and the filter buttons.
  */
 function initButton() {
-  var btnBackToTop = document.getElementById("btn-up");
-  var btnsMenu = document.querySelectorAll(".btn-secondary");
-  var filterBtns = document.querySelectorAll(".btn-primary");
+  btnBackToTop = document.getElementById("btn-up");
+  btnsMenu = document.querySelectorAll(".btn-secondary");
+  filterBtns = document.querySelectorAll(".btn-primary");
 
-  btnBackToTop.onclick = () => {
+  btnBackToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: `smooth` });
-  };
-
-  btnsMenu.forEach((btn) => {
-    btn.onclick = () => handleActiveBtn(btnsMenu, btn);
   });
 
-  filterBtns.forEach((btn) => {
-    btn.onclick = () => {
-      handleActiveBtn(filterBtns, btn);
-      filterProjects(btn);
-    };
-  });
+  for (let i = 0; i < btnsMenu.length; i++) {
+    btnsMenu[i].addEventListener("click", () => {
+      handleActiveBtn(btnsMenu, btnsMenu[i]);
+    });
+  }
+
+  for (let i = 0; i < filterBtns.length; i++) {
+    filterBtns[i].addEventListener("click", () => {
+      handleActiveBtn(filterBtns, filterBtns[i]);
+      filterProjects(filterBtns[i]);
+    });
+  }
 }
 
 /**
- * Filter all projects by the clicked button.
+ * Filter all projects by the clicked categorie-button.
  * @param  {Object} btn DOM element filter button
  */
 function filterProjects(btn) {
@@ -40,29 +53,29 @@ function filterProjects(btn) {
     return;
   }
 
-  projects.forEach((element) => {
-    if (element.dataset.result === btn.dataset.filter) {
-      Helpers.addClass(element, "active");
+  for (let i = 0; i < projects.length; i++) {
+    if (projects[i].dataset.result === btn.dataset.filter) {
+      Helpers.addClass(projects[i], "active");
     } else {
-      Helpers.removeClass(element, "active");
+      Helpers.removeClass(projects[i], "active");
     }
-  });
+  }
 }
 
 /**
- * Initialize the menu + all effects, including menu-toggle effect and menu-curton effect.
+ * Initialize menu-button and menu-curton effect.
  */
 function initNavBar() {
-  var menuToggle = document.getElementById("btn-menu-toggle");
-  var menuToggleIcon = document.getElementById("burgericon");
-  var navBar = document.getElementById("nav-bar");
+  menuToggle = document.getElementById("btn-menu-toggle");
+  menuToggleIcon = document.getElementById("burgericon");
+  navBar = document.getElementById("nav-bar");
 
-  menuToggle.onclick = function () {
-    menuToggleIcon.classList.toggle("changeIcon");
-    menuToggleIcon.classList.toggle("toggle");
-    menuToggleIcon.classList.toggle("toggleTwo");
-    navBar.classList.toggle("show");
-  };
+  menuToggle.addEventListener("click", () => {
+    Helpers.toggleClass(menuToggleIcon, "changeIcon");
+    Helpers.toggleClass(menuToggleIcon, "toggle");
+    Helpers.toggleClass(menuToggleIcon, "toggleTwo");
+    Helpers.toggleClass(navBar, "show");
+  });
 }
 
 /**
@@ -71,13 +84,13 @@ function initNavBar() {
  * @param  {Object} clickedButton DOM element clicked button
  */
 function handleActiveBtn(btns, clickedButton) {
-  btns.forEach((btn) => {
-    if (btn === clickedButton) {
-      btn.classList.add("active");
+  for (let i = 0; i < btns.length; i++) {
+    if (btns[i] === clickedButton) {
+      Helpers.addClass(btns[i], "active");
     } else {
-      btn.classList.remove("active");
+      Helpers.removeClass(btns[i], "active");
     }
-  });
+  }
 }
 
 /**
@@ -101,34 +114,34 @@ function scrollAppear(element) {
   }
 }
 
+/**
+ * Initialize the project-img-sliders.
+ */
 function initSlider() {
-  var sliderBtn = document.querySelectorAll(".btn-slider");
-  var sliderParent;
-  var sliderChildren;
+  let sliderParent;
+  let sliderChildren;
+  sliderBtn = document.querySelectorAll(".btn-slider");
 
-  sliderBtn.forEach((element) => {
-    element.onclick = () => {
-      sliderParent = element.parentNode;
+  for (let i = 0; i < sliderBtn.length; i++) {
+    sliderBtn[i].addEventListener("click", () => {
+      sliderParent = sliderBtn[i].parentNode;
       sliderChildren = sliderParent.getElementsByTagName("img");
-      var foundNext = false;
+      let foundNext = false;
+      let children = Array.prototype.slice.call(sliderChildren);
 
-      [...sliderChildren].forEach((el, index) => {
-        if (!Helpers.hasClass(el, "inactive") && !foundNext) {
-          var nextPos = index + 1 >= sliderChildren.length ? 0 : index + 1;
-          Helpers.removeClass(sliderChildren[nextPos], "inactive");
-          Helpers.addClass(el, "inactive");
+      for (let i = 0; i < children.length; i++) {
+        if (!Helpers.hasClass(children[i], "inactive") && !foundNext) {
+          let nextPos = i + 1 >= children.length ? 0 : i + 1;
+          Helpers.removeClass(children[nextPos], "inactive");
+          Helpers.addClass(children[i], "inactive");
           foundNext = true;
         }
-      });
-    };
-  });
+      }
+    });
+  }
 }
 
 /* Event Listeners */
-
-window.addEventListener("resize", function () {
-  initNavBar();
-});
 
 window.addEventListener("load", function () {
   firstLoad = false;
@@ -141,30 +154,29 @@ window.addEventListener("load", function () {
   ); // Initialize projects
 
   effectCurtonElements = document.querySelectorAll(".curtain-eff");
-
-  var title = document.getElementsByTagName("title")[0].innerHTML;
+  let title = document.getElementsByTagName("title")[0].innerHTML;
 
   // Init Printer only on about me page
   if (title === "Thomas Dorfer | About") {
-    var outputField = document.getElementById("outputField");
-    var thomas = new Developer("ThomasDorfer", "06.09.1994");
-    var frontend = new Skills("frontend", ["html", "css", "javascript"]);
-    var backend = new Skills("backend", ["php", "sql"]);
-    var mobile = new Skills("mobile", ["java", "android", "react native"]);
+    let outputField = document.getElementById("outputField");
+    let thomas = new Developer("ThomasDorfer", "06.09.1994");
+    let frontend = new Skills("frontend", ["html", "css", "javascript"]);
+    let backend = new Skills("backend", ["php", "sql"]);
+    let mobile = new Skills("mobile", ["java", "android", "react native"]);
 
     thomas.addSkill(frontend);
     thomas.addSkill(backend);
     thomas.addSkill(mobile);
 
-    var printer = new Printer(outputField, thomas);
+    let printer = new Printer(outputField, thomas);
     printer.start((param) => (outputField.innerHTML += param));
   }
 });
 
 window.onscroll = function () {
   if (!firstLoad) {
-    effectCurtonElements.forEach((element, index) => {
-      scrollAppear(element, index);
-    });
+    for (let i = 0; i < effectCurtonElements.length; i++) {
+      scrollAppear(effectCurtonElements[i], i);
+    }
   }
 };

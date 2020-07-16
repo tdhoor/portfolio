@@ -18,7 +18,7 @@ export default class Helpers {
   static addClass(element, className) {
     if (element.classList) {
       element.classList.add(className);
-    } else if (!hasClass(element, className)) {
+    } else if (!this.hasClass(element, className)) {
       element.setAttribute(
         "class",
         element.getAttribute("class") + " " + className
@@ -35,11 +35,19 @@ export default class Helpers {
   static removeClass(element, className) {
     if (element.classList) {
       element.classList.remove(className);
-    } else if (hasClass(element, className)) {
+    } else if (this.hasClass(element, className)) {
       element.setAttribute(
         "class",
         element.getAttribute("class").replace(className, " ")
       );
+    }
+  }
+
+  static toggleClass(element, name) {
+    if (element.getAttribute("class").indexOf(name) > -1) {
+      this.removeClass(element, name);
+    } else {
+      this.addClass(element, name);
     }
   }
 }

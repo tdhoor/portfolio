@@ -2,12 +2,31 @@
   "name": "my_portfolio",
   "version": "1.0.0",
   "description": "Portfolio",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^4.5.0",
+    "lodash": "^4.17.19"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "build": "webpack -d"
+  },
   "author": "Thomas Dorfer",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdhoor/portfolio.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tdhoor/portfolio/issues"
+  },
+  "homepage": "https://github.com/tdhoor/portfolio#readme"
 }
